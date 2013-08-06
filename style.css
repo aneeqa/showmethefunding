@@ -1,8 +1,18 @@
-#map-canvas {
-  width: 80%;
-  margin: 0 auto;
+#wrapper {
+  margin: 30px 0;
 }
-
 #map {
   margin: 0 auto;
+  width: 70%;
+  max-height: 600px;
+  position: relative;
+}
+#form-slide {
+  background-color: lightgray;
+  width: 250px;
+  position: absolute;
+  z-index: 10;
+  margin-top: 40px;
+  height: 300px;
+  border-radius: 0 20px 20px 0;
 }
