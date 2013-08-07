@@ -2,21 +2,25 @@
     {
         "research_institution": "University of Birmingham",
         "postcode": "B15 2TT",
-        "LatLng": "52.4508168, -1.930513499999961"
-    }
+        "Lat": 52.4508168, 
+        "Lng": -1.930513499999961
+    },
     {
         "research_institution": "University of Bristol",
         "postcode": "BS8 1TH",
-        "LatLng": "51.4579714, -2.6014743000000635"
-    }
+        "Lat": 51.4579714, 
+        "Lng": -2.6014743000000635
+    },
     {
         "research_institution": "University of Cambridge",
         "postcode": "CB2 1TN",
-        "LatLng": "52.205246, 0.11663299999997889"
-    }
+        "Lat": 52.205246, 
+        "Lng": 0.11663299999997889
+    },
     {
         "research_institution": "Cardiff University",
         "postcode": "CF10 3AT",
-        "LatLng": "51.487275, -3.175241000000028"
+        "Lat": 51.487275, 
+        "Lng": -3.175241000000028
     }
 ]}

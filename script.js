@@ -1,29 +1,38 @@
-
 var map;
-
-var myLatlng = new google.maps.LatLng(52.4508168, -1.930513499999961);
 
 function initialize() {
   var mapOptions = {
     zoom: 5,
-    center: new google.maps.LatLng(55.378051, -3.43597299999999),
+    center: new google.maps.LatLng(54.6, -1.3),
     mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+   
+   map = new google.maps.Map(document.getElementById('map-canvas'),
+      mapOptions);
+  placeMarkers();
   }
   
-  map = new google.maps.Map(document.getElementById('map-canvas'),
-      mapOptions);
-  
-  var marker = new google.maps.Marker({
-	  position: myLatlng,
-	  map: map,
-	  animation: google.maps.Animation.DROP,
-	  title: 'University of Birmingham.'
-  });
-  
-  google.maps.event.addListener(marker, 'click', function() {
-	  map.setZoom(8);
-	  map.setCenter(marker.getPosition());
-  });
+   function placeMarkers() {
+      $.getJSON(
+          "Dummy_final_array.json",
+          function(result) {
+		  console.log(result);
+		  $.each(result.establishments, function(key, val) {  
+ 	          var myLatLng = new google.maps.LatLng(val.Lat, val.Lng);
+              var marker = new google.maps.Marker({
+	              position: myLatLng,
+	              map: map,
+	              animation: google.maps.DROP,
+	              title: val.research_institution
+	           });
+	        });
+	      });
+	      
+	     
+  //google.maps.event.addListener(marker, 'click', function() {
+	  //map.setZoom(8);
+	  //map.setCenter(marker.getPosition());
+  //});
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
