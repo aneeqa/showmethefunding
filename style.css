@@ -1,12 +1,53 @@
+/*main wrapper*/
 #wrapper {
-  margin: 30px 0;
-}
-#map {
   margin: 0 auto;
-  width: 70%;
-  max-height: 600px;
-  position: relative;
+  width: 800px;
 }
+
+
+
+#main-form {
+  margin: 200px auto 0;
+  width: 500px;
+}
+#main-form input {
+  font-size: 24px;
+  padding: 6px 10px;
+}
+.css3button {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: #ffffff;
+  padding: 10px 20px;
+  background: -moz-linear-gradient(
+    top,
+    #4287ff 0%,
+    #23108f);
+  background: -webkit-gradient(
+    linear, left top, left bottom, 
+    from(#4287ff),
+    to(#23108f));
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  border: 1px solid #134201;
+  -moz-box-shadow:
+    0px 1px 3px rgba(000,000,000,0.5),
+    inset 0px 0px 2px rgba(255,255,255,1);
+  -webkit-box-shadow:
+    0px 1px 3px rgba(000,000,000,0.5),
+    inset 0px 0px 2px rgba(255,255,255,1);
+  box-shadow:
+    0px 1px 3px rgba(000,000,000,0.5),
+    inset 0px 0px 2px rgba(255,255,255,1);
+  text-shadow:
+    0px -1px 0px rgba(000,000,000,0.4),
+    0px 1px 0px rgba(255,255,255,0.3);
+  cursor: pointer;
+  outline: none;
+}
+
+/*map stuff*/
 #form-slide {
   background-color: lightgray;
   width: 250px;
@@ -15,4 +56,20 @@
   margin-top: 40px;
   height: 300px;
   border-radius: 0 20px 20px 0;
+}
+#map {
+  margin: 0 auto;
+  width: 70%;
+  max-height: 600px;
+  position: relative;
+}
+
+/*footer stuff*/
+footer {
+  margin-top: 200px;
+  text-align: center;
+}
+footer a{
+  padding-right: 20px;
+  color: darkgreen;
 }
