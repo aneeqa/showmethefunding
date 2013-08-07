@@ -1,10 +1,12 @@
+html {
+  background-color: #a5bfdd;
+}
+
 /*main wrapper*/
 #wrapper {
   margin: 0 auto;
   width: 800px;
 }
-
-
 
 #main-form {
   margin: 200px auto 0;
@@ -45,6 +47,10 @@
     0px 1px 0px rgba(255,255,255,0.3);
   cursor: pointer;
   outline: none;
+}
+#info-text {
+  width: 500px;
+  color: #000000;
 }
 
 /*map stuff*/
