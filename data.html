@@ -12,28 +12,7 @@
     </style>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
-
-<script type="text/javascript">
-var map;
-function initialize() {
-  var myLatlng = new google.maps.LatLng(52.4508168, -1.930513499999961);
-  var mapOptions = {
-    zoom: 5,
-    center: new google.maps.LatLng(55.378051, -3.43597299999999),
-    mapTypeId: google.maps.MapTypeId.ROADMAP
-  }
-  map = new google.maps.Map(document.getElementById('map-canvas'),
-      mapOptions);
-  
-  var marker = new google.maps.Marker({
-	  position: myLatlng,
-	  map: map,
-	  title: 'University of Birmingham.'
-  });
-}
-
-google.maps.event.addDomListener(window, 'load', initialize);
-</script>
+    <script src="script.js"></script>
 
 </head>
 
@@ -47,7 +26,8 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
   <div id="wrapper">
 
-    <div id="map">
+    <div id="map">  
+
 
     <!-- <div id="form-slide">
 <select>
