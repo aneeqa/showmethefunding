@@ -3,41 +3,9 @@
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
   <link rel="stylesheet" type="text/css" href="style.css"/>
   <title>Where's my funding</title>
-<style>
-      html, body, #map-canvas {
-        margin: 0;
-        padding: 0;
-        height: 100%;
-      }
-    </style>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
-
-<script type="text/javascript">
-var map;
-function initialize() {
-  var myLatlng = new google.maps.LatLng(52.4508168, -1.930513499999961);
-  var mapOptions = {
-    zoom: 5,
-    center: new google.maps.LatLng(55.378051, -3.43597299999999),
-    mapTypeId: google.maps.MapTypeId.ROADMAP
-  }
-  map = new google.maps.Map(document.getElementById('map-canvas'),
-      mapOptions);
-  
-  var marker = new google.maps.Marker({
-	  position: myLatlng,
-	  map: map,
-	  title: 'University of Birmingham.'
-  });
-}
-
-google.maps.event.addDomListener(window, 'load', initialize);
-</script>
-
 </head>
-
-
 
 <body>
 
@@ -47,39 +15,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
   <div id="wrapper">
 
-    <div id="map">
-
     <div id="form-slide">
-<select>
-<option>Research Institution</option>
-<option value="">Cardiff University</option>
-<option value="">Durham University</option>
-<option value="">Imperial College London</option>
-<option value="">King’s College London</option>
-<option value="">London School of Economics & Pol Sci</option>
-<option value="">NERC British Geological Survey</option>
-<option value="">Newcastle University</option>
-<option value="">Queen Mary, University of London</option>
-<option value="">Queen’s University  of Belfast</option>
-<option value="">STFC - Laboratories</option>
-<option value="">The Pirbright Institute</option>
-<option value="">University College London</option>
-<option value="">University of Birmingham</option>
-<option value="">University of Bristol</option>
-<option value="">University of Cambridge</option>
-<option value="">University of Edinburgh</option>
-<option value="">University of Exeter</option>
-<option value="">University of Glasgow</option>
-<option value="">University of Leeds</option>
-<option value="">University of Liverpool</option>
-<option value="">University of Manchester</option>
-<option value="">University of Nottingham</option>
-<option value="">University of Oxford</option>
-<option value="">University of Sheffield</option>
-<option value="">University of Southampton</option>
-<option value="">University of Warwick</option>
-<option value="">University of York</option>
-</select>
       <form id="stuff" class="seasons" action="analyze.html">
         <input type="radio" name="month" value="January" />test1
         <input type="radio" name="month" value="February" />test2
@@ -98,8 +34,8 @@ google.maps.event.addDomListener(window, 'load', initialize);
     </div>
 
     <!-- map goes here -->
-    
-      <div id="map-canvas"></div>
+    <div id="map">
+    <div id="map-canvas"></div>
     </div>
 
 
