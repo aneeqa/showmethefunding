@@ -15,6 +15,22 @@
                     "end": "?"
                 }
             ]
+        },
+        {
+            "orgname": "University of Bristol",
+            "Lat": 51.4579714,
+            "Lng": -2.6014743000000635,
+            "projects": [
+                {
+                    "title": "My study into the shape of pie",
+                    "abstract": "I was bored, and some people gave me some money.",
+                    "funder": "Mike from down the road.",
+                    "amount": 10,
+                    "status": "active",
+                    "start": "2012/5/12",
+                    "end": "?"
+                }
+            ]
         }
     ]
 }
