@@ -13,34 +13,40 @@ function initialize() {
 	   
   }
   
-   function placeMarkers() {
-      $.getJSON(
-          "Dummy_final_array.json",
-          function(result) {
-		  //console.log(result);
-		  $.each(result.establishments, function(key, val) {
- 	          var myLatLng = new google.maps.LatLng(val.Lat, val.Lng);
-              var marker = new google.maps.Marker({
-	              position: myLatLng,
-	              map: map,
-	              animation: google.maps.Animation.DROP,
-	              title: val.orgname
-	           });
+  
+  
+function placeMarkers(result) {     
+	$.each(result.establishments, function(key, val) {
+ 	       var myLatLng = new google.maps.LatLng(val.Lat, val.Lng);
+           var marker = new google.maps.Marker({
+	           position: myLatLng,
+	           map: map,
+	           animation: google.maps.Animation.DROP,
+	           title: val.orgname
 	        });
-	      });
+	 });
 	      
 }
+
+//function infoWindows(result) {
+	//$.each(result.
+
 
 google.maps.event.addDomListener(window, 'load', initialize);
 
 $(document).ready(function() {
-  $('form').submit(function(e2) {
-	  console.log("Working up to here");
-	  e2.preventDefault();
-    $('#landing-slide').animate({"left":"80%"}, 1500, function(){
-		placeMarkers();
+    $('form').submit(function(e2) {
+	    console.log("Working up to here");
+	    e2.preventDefault();
+        $('#landing-slide').animate({"left":"80%"}, 1500, function(){
+		    $.getJSON(
+            "Dummy_final_array.json",
+             function(result) { 
+		        placeMarkers(result);
+		        
+	         });
 		});
-  });
+    });
   $('#hide').click(function() {  
     $('#landing-slide').hide();
   });
