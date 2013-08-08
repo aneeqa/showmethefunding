@@ -1,0 +1,57 @@
+import json
+import urllib.request
+ 
+# Get org data = http://gtr.rcuk.ac.uk/organisation/2512EF1C-401B-4222-9869-A770D4C5FAC7.json
+# Get project data = http://gtr.rcuk.ac.uk/search/project.json?term=mouse
+ 
+f = urllib.request.urlopen('http://gtr.rcuk.ac.uk/search/project.json?term=mouse')
+s = f.read()
+data = json.loads(s.decode('utf-8'))
+f.close()
+ 
+organisations = dict()
+ 
+# Loop over projects
+for project in data['results']:
+    project = project['projectComposition']
+ #don't want funder!! -- need to sort this out later with someone actually competent's help
+    funder = project['project']['fund']['funder']['id']
+    #pounds = project['project']['fund']['valuePounds']
+    fundee = project['leadResearchOrganisation']['id']
+    #title = project['project']['title']
+ 
+    # Collect organisations
+    organisations[funder] = ''
+    organisations[fundee] = ''
+ 
+#    print "%s gave %d pounds to %s for '%s'\n" % (funder, pounds, fundee, title)
+
+megastring = '{ "List": [ '
+ 
+for organisation in organisations.keys():
+    f = urllib.request.urlopen('http://gtr.rcuk.ac.uk/organisation/%s.json' % organisation)
+    s = f.read()
+    data = json.loads(s.decode('utf-8'))
+    f.close()
+ 
+    data2 = data['organisationOverview']['organisation']
+    try:
+        #print "%s is %s at %s" % (organisation, data2['name'], data2['address']['postCode'])
+        #print data2['name']
+        #print data2['address']['postCode']
+        megastring = megastring + '{ "uniName":"%s", "postCode":"%s" }, ' % (data2['name'], data2['address']['postCode'])
+    except KeyError:
+        #print "%s has something missing, maybe address?" % (organisation)
+        pass
+
+
+
+print(megastring)
+
+#megastring should be formatted as
+#a JSON array (or, at least, it's punctuated
+#to the piece of paper I was given)
+
+#problems:
+#do I actually need the 'funder' thingy
+#takes a realy long time to run
