@@ -1,29 +1,45 @@
 <html>
 <head>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="style.css"/>
   <title>Where's my funding</title>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" type="text/css" href="style.css"/>
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+  
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+  <script src="script.js"></script>
+
 </head>
 
 <body>
-  <header>
-    <img src="" width="" height="" alt="" />
-  <header>
+<div id="wrapper">
 
-  <div id="wrapper">
+<div id="landing-slide">
+<button type="submit" name="hide" id="hide">hide</button>
+<div id="main-form">
 
-    <div id="main-form">
-      <form id="form" action="data.html">
+  <header>
+    <h1>Show me the &pound;unds</h1>
+  </header>
+
+  
+
+  
+    
+      <form id="form" action="">
         <input type="text" name="input" placeholder="Enter text" />
-        <input type="submit" name="" value="Search" class="css3button">
+        <button type="submit" name="" class="css3button">Search</button>
       </form>
-    </div>
+    
     <div id="info-text"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Quis quis laborum. nostrud commodo eiusmod Duis sit deserunt fugiat esse in dolore ipsum quis elit, sit fugiat ex occaecat deserunt deserunt in in dolor</p></div>
-
-  <footer>
+    <footer>
     <p><a href="about.php">About</a>Copyright 2013</p>
   </footer>
-  </div>
+    </div>
+    </div><div id="map"> 
+<div id="map-canvas"></div></div>
+  
+</div>
 </body>
 
 </html>

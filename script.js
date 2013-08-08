@@ -1,9 +1,10 @@
+google.maps.visualRefresh = true;
 var map;
 
 function initialize() {
   var mapOptions = {
-    zoom: 5,
-    center: new google.maps.LatLng(54.6, -1.3),
+    zoom: 6,
+    center: new google.maps.LatLng(54.8,-9.9),
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
    
@@ -29,10 +30,30 @@ function initialize() {
 	      });
 	      
 	     
-  //google.maps.event.addListener(marker, 'click', function() {
-	  //map.setZoom(8);
-	  //map.setCenter(marker.getPosition());
-  //});
+  google.maps.event.addListener(marker, 'click', function() {
+	  map.setZoom(8);
+	  map.setCenter(marker.getPosition());
+  });
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
+
+$(document).ready(function() {
+  $('form').submit(function() {  
+    $('#landing-slide').animate({"left":"80%"}, 1500);
+  });
+  $('#hide').click(function() {  
+    $('#landing-slide').hide();
+  });
+});
+
+$(function() {
+  $('form').on('submit', function(e) {
+      gMap = new google.maps.Map(document.getElementById('map-canvas')); 
+      gMap.setZoom(7);      // This will trigger a zoom_changed on the map
+      gMap.setCenter(new google.maps.LatLng(54.8,-2.3));
+      gMap.setMapTypeId(google.maps.MapTypeId.ROADMAP);
+      
+      e.preventDefault();
+    });
+});
