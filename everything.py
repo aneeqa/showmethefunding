@@ -1,13 +1,20 @@
 import json
 import urllib.request
 import cgitb
+import sys
+import cgi
 cgitb.enable()
+
 
 print("Content-Type: application/json")     
 print()                              
 
+fields = cgi.FieldStorage()
+if "term" not in fields:
+    print("[]")
+    sys.exit()
  
-f = urllib.request.urlopen('http://gtr.rcuk.ac.uk/search/project.json?term=mouse')
+f = urllib.request.urlopen('http://gtr.rcuk.ac.uk/search/project.json?term=%s' % (fields['term']))
 s = f.read()
 data = json.loads(s.decode('utf-8'))
 f.close()
@@ -41,8 +48,6 @@ for project in data['results']:
     
     organisations[orgid].append(details)
  
-#    print "%s gave %d pounds to %s for '%s'\n" % (funder, pounds, fundee, title)
-
 results = list()
  
 for organisation in organisations.keys():
