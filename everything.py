@@ -1,8 +1,11 @@
 import json
 import urllib.request
- 
-# Get org data = http://gtr.rcuk.ac.uk/organisation/2512EF1C-401B-4222-9869-A770D4C5FAC7.json
-# Get project data = http://gtr.rcuk.ac.uk/search/project.json?term=mouse
+import cgitb
+cgitb.enable()
+
+print("Content-Type: application/json")     
+print()                              
+
  
 f = urllib.request.urlopen('http://gtr.rcuk.ac.uk/search/project.json?term=mouse')
 s = f.read()
@@ -61,7 +64,6 @@ for organisation in organisations.keys():
     try:
         establishment = {
             "orgname" : data['name'],
-            #"postCode" : postcode,
             "projects" : organisations[organisation],
             "lat" : postcodedata['geo']['lat'],
             "lon" : postcodedata['geo']['lng']
@@ -70,21 +72,12 @@ for organisation in organisations.keys():
         
         results.append(establishment)
     except KeyError:
-        #print "%s has something missing, maybe address?" % (organisation)
+
         pass
 
     
 
 
 
-print(json.dumps(results, indent=2))
+print(json.dumps(results))
 
-#print(megastring)
-
-#megastring should be formatted as
-#a JSON array (or, at least, it's punctuated
-#to the piece of paper I was given)
-
-#problems:
-#do I actually need the 'funder' thingy
-#takes a realy long time to run
