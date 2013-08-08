@@ -4,19 +4,19 @@
     box-sizing: border-box;
 }
 html, body, #map-canvas {
-        margin: 0;
-        padding: 0;
-        height: 100%;
-      }
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
 /*main wrapper*/
 header {
   text-align: center;
-  font-family: Ubuntu;
   font-size: 40px;
 }
 h1 {
   color: rgb(57, 136, 53);
   text-shadow: 1px 1px 1px #000000;
+  font-family: Times;
 }
 #landing-slide{
   z-index: 100;
@@ -54,6 +54,26 @@ h1 {
   width: 20%;
   cursor: pointer;
   float: right;
+  background: -moz-linear-gradient(
+    top,
+    #34d134 0%,
+    #185c14);
+  background: -webkit-gradient(
+    linear, left top, left bottom, 
+    from(#34d134),
+    to(#185c14));
+  -moz-box-shadow:
+    0px 1px 3px rgba(000,000,000,0.5),
+    inset 0px 0px 1px rgba(255,255,255,1);
+  -webkit-box-shadow:
+    0px 1px 3px rgba(000,000,000,0.5),
+    inset 0px 0px 1px rgba(255,255,255,1);
+  box-shadow:
+    0px 1px 3px rgba(000,000,000,0.5),
+    inset 0px 0px 1px rgba(255,255,255,1);
+  text-shadow:
+    0px -1px 0px rgba(000,000,000,0.7),
+    0px 1px 0px rgba(255,255,255,0.3);
 }
 .input-text{
   color: darkgray;
@@ -61,6 +81,7 @@ h1 {
 #info-text {
   width: 500px;
   color: #000000;
+  font-family: 
 }
 
 /*map stuff*/

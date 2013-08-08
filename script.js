@@ -17,7 +17,8 @@ function initialize() {
   
 function placeMarkers(result) {     
 	$.each(result.establishments, function(key, val) {
- 	       var myLatLng = new google.maps.LatLng(val.Lat, val.Lng);
+         //alert(val.lng)
+ 	       var myLatLng = new google.maps.LatLng(val.lat, val.lon);
            var marker = new google.maps.Marker({
 	           position: myLatLng,
 	           map: map,
@@ -40,7 +41,8 @@ $(document).ready(function() {
 	    e2.preventDefault();
         $('#landing-slide').animate({"left":"80%"}, 1500, function(){
 		    $.getJSON(
-            "Dummy_final_array.json",
+            "/cgi-bin/everything.py",
+            {"term" : $('#input-text').val()},
              function(result) { 
 		        placeMarkers(result);
 		        
