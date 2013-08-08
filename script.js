@@ -1,6 +1,5 @@
 google.maps.visualRefresh = true;
 var map;
-var infowindow = null;
    
 function initialize() {
   var mapOptions = {
@@ -11,26 +10,21 @@ function initialize() {
    
    map = new google.maps.Map(document.getElementById('map-canvas'),
       mapOptions);
-   
-  // infowindow = new google.maps.InfoWindow({
-	//   content: "placeholder..."
-  // });
 	   
-
   }
   
    function placeMarkers() {
       $.getJSON(
           "Dummy_final_array.json",
           function(result) {
-		  console.log(result);
-		  $.each(result.establishments, function(key, val) {  
+		  //console.log(result);
+		  $.each(result.establishments, function(key, val) {
  	          var myLatLng = new google.maps.LatLng(val.Lat, val.Lng);
               var marker = new google.maps.Marker({
 	              position: myLatLng,
 	              map: map,
 	              animation: google.maps.Animation.DROP,
-	              title: val.research_institution
+	              title: val.orgname
 	           });
 	        });
 	      });

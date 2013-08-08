@@ -1,18 +1,20 @@
-{ "establishments": [
-    {
-        "orgname": "University of Birmingham",
-        "lat": 52.4508168, 
-        "lon": -1.930513499999961,
-         "projects": [
-            {
-                "title": "My study into the shape of melons",
-                "abstract": "I was bored, and some people gave me some money.",
-                "funder": "Jim from down the road.",
-                "amount": 5,
-                "status": "active",
-                "start": "2012/5/12",
-                "end": "?"
-        ]}
-    },
-    
-]}
+{
+    "establishments": [
+        {
+            "orgname": "University of Birmingham",
+            "Lat": 52.4508168,
+            "Lng": -1.930513499999961,
+            "projects": [
+                {
+                    "title": "My study into the shape of melons",
+                    "abstract": "I was bored, and some people gave me some money.",
+                    "funder": "Jim from down the road.",
+                    "amount": 5,
+                    "status": "active",
+                    "start": "2012/5/12",
+                    "end": "?"
+                }
+            ]
+        }
+    ]
+}
