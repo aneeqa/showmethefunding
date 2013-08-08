@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 import json
 import urllib.request
 import cgitb
@@ -84,5 +86,5 @@ for organisation in organisations.keys():
 
 
 
-print(json.dumps(results))
+print(json.dumps({"establishments":results}))
 
