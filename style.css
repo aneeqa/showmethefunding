@@ -40,7 +40,7 @@ h1 {
   border: 1px solid #AAAAAA;
   border-radius: 30px 0 0 30px;
   font-size: 30px;
-  padding: 10px;
+  padding: 10px 30px;
   width: 80%;
   float: left;
   outline: none;
@@ -55,7 +55,9 @@ h1 {
   cursor: pointer;
   float: right;
 }
-
+.input-text{
+  color: darkgray;
+}
 #info-text {
   width: 500px;
   color: #000000;
