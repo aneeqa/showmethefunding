@@ -4,49 +4,85 @@
     box-sizing: border-box;
 }
 html, body, #map-canvas {
+  height: 100%;
   margin: 0;
   padding: 0;
-  height: 100%;
 }
 /*main wrapper*/
 header {
-  text-align: center;
+  background-color: rgba(250,250,250,0.7);
+  box-shadow: 0px 0px 14px -3px #000000;
   font-size: 40px;
+  margin-bottom: 40px;
+  padding: 4px 24px;
+  text-align: center;
 }
 h1 {
-  color: rgb(57, 136, 53);
-  text-shadow: 1px 1px 1px #000000;
+  color: #2e8d2c;
   font-family: Times;
+  margin: 0;
+  text-shadow: 1px 1px 1px #000000;
+}
+strong {
+  font-size: 18px;
+}
+table {
+  border-collapse: collapse;
 }
 #landing-slide{
-  z-index: 100;
-  position: absolute;
   background-color: rgba(250,250,250,0.7);
-  width: 100%;
+  box-shadow: 0 0 8px #000000;
   height: 100%;
+  overflow:  hidden;
+  position: absolute;
+  width: 100%;
+  z-index: 100;
 }
-
 #main-form {
   margin: 0 auto;
   width: 60%;
 }
-
+#loading {
+  background-color: rgba(250,250,250,0.9);
+  border-radius: 30%;
+  box-shadow: 0 0 8px #000000;
+  left: 46%;
+  margin: auto;
+  padding: 20px;
+  position: fixed;
+  top: 40%;
+  z-index: 100;
+}
 #hide {
+  float: left;
   position: relative;
-  float: right;
+}
+#form {
+  padding: 15px 20px;
+  float: left;
+  width: 100%;
+  border-radius: 50px;
+  background: -moz-linear-gradient(
+    top, #389938 0%, #105F0B);
+  background: -webkit-gradient(
+    linear, left top, left bottom, from(#389938), to(#105F0B));
+  box-shadow: 2px 2px 14px -2px #000000;
 
 }
 #form input {
-  border: 1px solid #AAAAAA;
+  border: 1px solid #0C350A;
   border-radius: 30px 0 0 30px;
   font-size: 30px;
   padding: 10px 30px;
   width: 80%;
   float: left;
   outline: none;
+  background: #1D571A;
+  box-shadow: inset 2px 2px 12px #000;
+  font-family: 'Roboto Slab', serif;
 }
 #form button {
-  border: 1px solid #AAAAAA;
+  border: 1px solid #0C350A;
   border-radius: 0 30px 30px 0;
   float: right;
   font-size: 30px;
@@ -55,44 +91,30 @@ h1 {
   cursor: pointer;
   float: right;
   background: -moz-linear-gradient(
-    top,
-    #34d134 0%,
-    #185c14);
+    top, #F7A30E 0%, #AF6200);
   background: -webkit-gradient(
-    linear, left top, left bottom, 
-    from(#34d134),
-    to(#185c14));
-  -moz-box-shadow:
-    0px 1px 3px rgba(000,000,000,0.5),
-    inset 0px 0px 1px rgba(255,255,255,1);
-  -webkit-box-shadow:
-    0px 1px 3px rgba(000,000,000,0.5),
-    inset 0px 0px 1px rgba(255,255,255,1);
+    linear, left top, left bottom, from(#F7A30E), to(#AF6200));
   box-shadow:
-    0px 1px 3px rgba(000,000,000,0.5),
     inset 0px 0px 1px rgba(255,255,255,1);
   text-shadow:
     0px -1px 0px rgba(000,000,000,0.7),
     0px 1px 0px rgba(255,255,255,0.3);
+  font-family: 'Roboto Slab', serif;
 }
 .input-text{
-  color: darkgray;
+  color: #AAAAAA;
 }
 #info-text {
-  width: 500px;
+  width: 70%;
   color: #000000;
-  font-family: 
-}
-
-/*map stuff*/
-#form-slide {
-  background-color: lightgray;
-  width: 250px;
-  position: absolute;
-  z-index: 10;
+  font-family: 'Roboto Slab', serif;
+  float: left;
+  font-size: 16px;
+  background-color: rgba(250,250,250,0.7);
+  padding: 4px 24px;
+  border-radius: 20px;
   margin-top: 40px;
-  height: 300px;
-  border-radius: 0 20px 20px 0;
+  box-shadow: 0px 0px 14px -3px #000000;
 }
 #map {
   height: auto;
@@ -101,10 +123,8 @@ h1 {
 
 /*footer stuff*/
 footer {
+  float: left;
   margin-top: 30px;
   text-align: center;
-}
-footer a{
-  padding-right: 20px;
-  color: darkgreen;
+  width: 100%;
 }

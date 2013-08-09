@@ -17,74 +17,78 @@ function initialize() {
 function createHTML(result) {
     HTMLtext = new Array();
 	$.each(result.establishments, function(ndx, val) {
-        var html = "<div id='content'><h2>";
+        html = "<div id='content'><h2>";
         html += val.orgname;
         html += "</h2>";
         html += "<div class='proj-info'>";
-        html += "<h3>";
-        html += val.projects[0].title;
-        html += "</h3>"
         html += "<table border='1'>";
-        html += "<tr class='funds'>";
-        html += "<td>";
-        html += "<b>";
-        html += "Amount";
-        html += "</b>";
-        html += "</td>";
-        html += "<td>";
-        html += val.projects[0].amount;
-        html += "</td>";
-        html += "</tr>";
-        html += "<tr class='funded by'>";
-        html += "<td>";
-        html += "<b>";
-        html += "Funded By"
-        html += "</b>";
-        html += "</td>";
-        html += "<td>";
-        html += val.projects[0].funder;
-        html += "</td>";
-        html += "</tr>";
-        html += "<tr class='active'>";
-        html += "<td>";
-        html += "<b>";
-        html += "Project Status";
-        html += "</b>";
-        html += "</td>";
-        html += "<td>";
-        html += val.projects[0].status;
-        html += "</td>";
-        html += "</tr>";
-        html += "<tr class='start-date'>";
-        html += "<td>";
-        html += "<b>";
-        html += "Start Date";
-        html += "</b>";
-        html += "</td>";
-        html += "<td>";
-        html += val.projects[0].start;
-        html += "</td>"; 
-        html += "</tr>";
-        html += "<tr class='end-date'>";
-        html += "<td>";
-        html += "<b>";
-        html += "End Date";
-        html += "</b>";
-        html += "</td>";
-        html += "<td>";
-        html += val.projects[0].end;
-        html += "</td>";
-        html += "</tr>";
-        html += "<tr class='abstract'>";
-        html += "<td>";
-        html += "<b>";
-        html += "Abstract";
-        html += "</b>";
-        html += "</td>";
-        html += "<td>";
-        html += val.projects[0].abstract;
-        html += "</td>";
-        html += "</tr>";
+        for(var i=0; i<val.projects.length; ++i) {
+          html += "<tr><td colspan='2'><h3>";
+          html += val.projects[i].title;
+          html += "</h3></td></tr>";
+          html += "<tr class='funds'>";
+          html += "<td>";
+          html += "<b>";
+          html += "Amount";
+          html += "</b>";
+          html += "</td>";
+          html += "<td>";
+          html += val.projects[i].amount;
+          html += "</td>";
+          html += "</tr>";
+          html += "<tr class='funded by'>";
+          html += "<td>";
+          html += "<b>";
+          html += "Funded By"
+          html += "</b>";
+          html += "</td>";
+          html += "<td>";
+          html += val.projects[i].funder;
+          html += "</td>";
+          html += "</tr>";
+          if (val.projects[i].status) {
+            html += "<tr class='active'>";
+            html += "<td>";
+            html += "<b>";
+            html += "Project Status";
+            html += "</b>";
+            html += "</td>";
+            html += "<td>";
+            html += val.projects[i].status;
+            html += "</td>";
+            html += "</tr>";
+          }   
+          html += "<tr class='start-date'>";
+          html += "<td>";
+          html += "<b>";
+          html += "Start Date";
+          html += "</b>";
+          html += "</td>";
+          html += "<td>";
+          html += val.projects[i].start;
+          html += "</td>"; 
+          html += "</tr>";
+          html += "<tr class='end-date'>";
+          html += "<td>";
+          html += "<b>";
+          html += "End Date";
+          html += "</b>";
+          html += "</td>";
+          html += "<td>";
+          html += val.projects[i].end;
+          html += "</td>";
+          html += "</tr>";
+          // html += "<tr class='abstract'>";
+          // html += "<td>";
+          // html += "<b>";
+          // html += "Abstract";
+          // html += "</b>";
+          // html += "</td>";
+          // html += "<td>";
+          // html += val.projects[i].abstract;
+          // html += "</td>";
+          // html += "</tr>";
+        }
         html += "</table>";
         html += "</div>";
         html += "</div>";
@@ -115,14 +119,18 @@ function placeMarkers(result) {
 google.maps.event.addDomListener(window, 'load', initialize);
 
 $(document).ready(function() {
+  $('#loading').hide();
     $('form').submit(function(e2) {
 	    console.log("Working up to here");
 	    e2.preventDefault();
-        $('#landing-slide').animate({"left":"80%"}, 1500, function(){
+          $('#loading').show();
+        $('#landing-slide').animate({left:'80%'}, 1000,'easeOutBounce', function(){
+         $('#landing-slide').animate({right:'80%'}, 1000,'easeOutBounce')
 		    $.getJSON(
              "/cgi-bin/everything.py",
            {"term" : $('#input-text').val()},
              function(result) { 
+              $('#loading').hide();
 		        createHTML(result);
 		        placeMarkers(result);
 		           infowindow = new google.maps.InfoWindow({
