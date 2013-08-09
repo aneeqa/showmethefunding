@@ -18,7 +18,7 @@ function initialize() {
 function placeMarkers(result) {     
 	$.each(result.establishments, function(key, val) {
          //alert(val.lng)
- 	       var myLatLng = new google.maps.LatLng(val.lat, val.lon);
+ 	       var myLatLng = new google.maps.LatLng(val.lat, val.lng);
            var marker = new google.maps.Marker({
 	           position: myLatLng,
 	           map: map,
@@ -36,17 +36,21 @@ function placeMarkers(result) {
 google.maps.event.addDomListener(window, 'load', initialize);
 
 $(document).ready(function() {
+    $('#loading').hide();
     $('form').submit(function(e2) {
 	    console.log("Working up to here");
 	    e2.preventDefault();
-        $('#landing-slide').animate({"left":"80%"}, 1500, function(){
+      $('#loading').show();
+        $('#landing-slide').animate({left:'80%'}, 1000,'easeOutBounce', function(){
+          $('#landing-slide').animate({right:'80%'}, 1000,'easeOutBounce')
 		    $.getJSON(
             "/cgi-bin/everything.py",
             {"term" : $('#input-text').val()},
              function(result) { 
+              $('#loading').hide();
 		        placeMarkers(result);
-		        
 	         });
+
 		});
     });
   $('#hide').click(function() {  
