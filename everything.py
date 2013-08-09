@@ -73,7 +73,7 @@ for organisation in organisations.keys():
             "orgname" : data['name'],
             "projects" : organisations[organisation],
             "lat" : postcodedata['geo']['lat'],
-            "lon" : postcodedata['geo']['lng']
+            "lng" : postcodedata['geo']['lng']
             
         }
         
@@ -87,4 +87,3 @@ for organisation in organisations.keys():
 
 
 print(json.dumps({"establishments":results}))
-
