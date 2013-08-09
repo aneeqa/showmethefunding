@@ -15,8 +15,8 @@ fields = cgi.FieldStorage()
 if "term" not in fields:
     print("[]")
     sys.exit()
- 
-f = urllib.request.urlopen('http://gtr.rcuk.ac.uk/search/project.json?term=%s' % (fields['term']))
+
+f = urllib.request.urlopen('http://gtr.rcuk.ac.uk/search/project.json?term=%s' % fields['term'].value)
 s = f.read()
 data = json.loads(s.decode('utf-8'))
 f.close()
@@ -87,4 +87,3 @@ for organisation in organisations.keys():
 
 
 print(json.dumps({"establishments":results}))
-
