@@ -5,6 +5,7 @@ import urllib.request
 import cgitb
 import sys
 import cgi
+import os
 cgitb.enable()
 
 
@@ -53,36 +54,43 @@ for project in data['results']:
 results = list()
  
 for organisation in organisations.keys():
-    f = urllib.request.urlopen('http://gtr.rcuk.ac.uk/organisation/%s.json' % organisation)
-    s = f.read()
-    data = json.loads(s.decode('utf-8'))
-    f.close()
+    if os.path.isfile(organisation):
+        f = open(organisation)
+        establishment = json.load(f)
+        f.close()
+    else:
+        f = urllib.request.urlopen('http://gtr.rcuk.ac.uk/organisation/%s.json' % organisation)
+        s = f.read()
+        data = json.loads(s.decode('utf-8'))
+        f.close()
+     
+        data = data['organisationOverview']['organisation']
+
+        postcode = data['address']['postCode']
+
+        f = urllib.request.urlopen('http://uk-postcodes.com/postcode/%s.json' % postcode.replace(" ", ""))
+        s = f.read()
+        postcodedata = json.loads(s.decode('utf-8'))
+        f.close()
+
+
+        try:
+            establishment = {
+                "orgname" : data['name'],            
+                "lat" : postcodedata['geo']['lat'],
+                "lng" : postcodedata['geo']['lng']
+                
+            }
  
-    data = data['organisationOverview']['organisation']
+        except KeyError:
 
-    postcode = data['address']['postCode']
+            pass
+        f = open(organisation, "w")
+        json.dump(establishment, f)
+        f.close()
 
-    f = urllib.request.urlopen('http://uk-postcodes.com/postcode/%s.json' % postcode.replace(" ", ""))
-    s = f.read()
-    postcodedata = json.loads(s.decode('utf-8'))
-    f.close()
-
-
-    try:
-        establishment = {
-            "orgname" : data['name'],
-            "projects" : organisations[organisation],
-            "lat" : postcodedata['geo']['lat'],
-            "lng" : postcodedata['geo']['lng']
-            
-        }
-        
-        results.append(establishment)
-    except KeyError:
-
-        pass
-
-    
+    establishment["projects"] = organisations[organisation]
+    results.append(establishment)
 
 
 
