@@ -70,8 +70,7 @@ for organisation in organisations.keys():
 
     try:
         establishment = {
-            "orgname" : data['name'],
-            "projects" : organisations[organisation],
+            "orgname" : data['name'],            
             "lat" : postcodedata['geo']['lat'],
             "lng" : postcodedata['geo']['lng']
             
@@ -82,6 +81,7 @@ for organisation in organisations.keys():
 
         pass
 
+    establishment["projects"] = organisations[organisation]
     
 
 
