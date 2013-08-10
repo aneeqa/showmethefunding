@@ -78,7 +78,7 @@ for organisation in organisations.keys():
             establishment = {
                 "orgname" : data['name'],            
                 "lat" : postcodedata['geo']['lat'],
-                "lon" : postcodedata['geo']['lng']
+                "lng" : postcodedata['geo']['lng']
                 
             }
  
