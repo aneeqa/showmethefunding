@@ -81,8 +81,7 @@ for organisation in organisations.keys():
                 "lon" : postcodedata['geo']['lng']
                 
             }
-            
-            
+ 
         except KeyError:
 
             pass
