@@ -119,16 +119,17 @@ function placeMarkers(result) {
 google.maps.event.addDomListener(window, 'load', initialize);
 
 $(document).ready(function() {
-  $('#loading').hide();
+  $('#loading, #options').hide();
     $('form').submit(function(e2) {
-	    console.log("Working up to here");
+	    //console.log("Working up to here");
+      //$('#map-canvas').gmap('destroy');
 	    e2.preventDefault();
-          $('#loading').show();
+          $('#loading, #options').show();
         $('#landing-slide').animate({left:'80%'}, 1000,'easeOutBounce', function(){
          $('#landing-slide').animate({right:'80%'}, 1000,'easeOutBounce')
 		    $.getJSON(
              "/cgi-bin/everything.py",
-           {"term" : $('#input-text').val()},
+           {"term" : $('.input-text').val()},
              function(result) { 
               $('#loading').hide();
 		        createHTML(result);

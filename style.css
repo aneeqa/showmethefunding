@@ -1,27 +1,37 @@
 * { 
-    -moz-box-sizing: border-box; 
-    -webkit-box-sizing: border-box; 
-    box-sizing: border-box;
+  -moz-box-sizing: border-box; 
+  -webkit-box-sizing: border-box; 
+  box-sizing: border-box;
 }
 html, body, #map-canvas {
   height: 100%;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 /*main wrapper*/
 header {
   background-color: rgba(250,250,250,0.7);
   box-shadow: 0px 0px 14px -3px #000000;
   font-size: 40px;
-  margin-bottom: 40px;
   padding: 4px 24px;
   text-align: center;
+  height: 134px;
 }
 h1 {
-  color: #2e8d2c;
+  color: #237b21;
   font-family: Times;
   margin: 0;
   text-shadow: 1px 1px 1px #000000;
+  padding-top: 10px;
+}
+h5{
+  margin: 4px 0;
+  font-size: 20px;
+  text-align: center;
+}
+p {
+  margin: 0px;
 }
 strong {
   font-size: 18px;
@@ -29,7 +39,7 @@ strong {
 table {
   border-collapse: collapse;
 }
-#landing-slide{
+#landing-slide {
   background-color: rgba(250,250,250,0.7);
   box-shadow: 0 0 8px #000000;
   height: 100%;
@@ -57,7 +67,7 @@ table {
   float: left;
   position: relative;
 }
-#form {
+.form {
   padding: 15px 20px;
   float: left;
   width: 100%;
@@ -67,9 +77,9 @@ table {
   background: -webkit-gradient(
     linear, left top, left bottom, from(#389938), to(#105F0B));
   box-shadow: 2px 2px 14px -2px #000000;
-
+  margin: 40px 0;
 }
-#form input {
+.form input {
   border: 1px solid #0C350A;
   border-radius: 30px 0 0 30px;
   font-size: 30px;
@@ -81,7 +91,7 @@ table {
   box-shadow: inset 2px 2px 12px #000;
   font-family: 'Roboto Slab', serif;
 }
-#form button {
+.form button {
   border: 1px solid #0C350A;
   border-radius: 0 30px 30px 0;
   float: right;
@@ -104,27 +114,24 @@ table {
 .input-text{
   color: #AAAAAA;
 }
-#info-text {
-  width: 70%;
+.info-text {
+  width: 48%;
   color: #000000;
   font-family: 'Roboto Slab', serif;
-  float: left;
   font-size: 16px;
   background-color: rgba(250,250,250,0.7);
   padding: 4px 24px;
   border-radius: 20px;
-  margin-top: 40px;
   box-shadow: 0px 0px 14px -3px #000000;
+  padding-bottom: 16px;
+}
+#right-text-box {
+  float: right;
+}
+#left-text-box {
+  float: left;
 }
 #map {
   height: auto;
   position: relative;
-}
-
-/*footer stuff*/
-footer {
-  float: left;
-  margin-top: 30px;
-  text-align: center;
-  width: 100%;
 }

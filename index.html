@@ -1,41 +1,51 @@
 <html>
 <head>
-  <title>Where's my funding</title>
+  <title>Show me the funding</title>
   <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
   <link rel="stylesheet" type="text/css" href="style.css"/>
+  <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
   <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
-  <link href='http://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
   <script src="script.js"></script>
-
 </head>
 
 <body>
-<div id="wrapper">
-<div id="loading"><img src="animation.gif" width="100" /></div>
-<div id="landing-slide">
-<button type="submit" name="hide" id="hide">hide</button>
-<a href="https://github.com/you"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub"></a>
+  <div id="wrapper">
+    <div id="loading"><img src="animation.gif" width="100" /></div>
+    <div id="landing-slide">
+    <a href="https://github.com/aneeqa/showmethefunding">
+      <img style="position: absolute; top: 0; right: 0; border: 0; z-index: 200;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub">
+    </a>
+      <div id="options">
+      <form class="form-small" action="">
+            <input type="text" name="input2" placeholder="Enter a topic" />
+            <button type="submit" name="" class="css3button">Search</button>
+          </form>
+      </div>
+      <header>
+        <h1>Show me the &pound;unding</h1>
+      </header>
+        <div id="main-form">
+          <form class="form" action="">
+            <input type="text" name="input" class="input-text" placeholder="Enter a topic" />
+            <button type="submit" name="" class="css3button">Search</button>
+          </form>
+            
+          <div id="left-text-box" class="info-text">
+            <h5>About us</h5>
+            <p><i>Show me the funding</i> is a web application designed to display where and how research funding is dispersed across the United Kingdom. By searching for topics of interest, you will be able to view related past and current research projects, where the lead institutions for those projects are taking place on a map along with appropriate related information, and see connections between institutions working together on projects.</p>
+          </div> <!-- left-text-box END -->
+          <div id="right-text-box" class="info-text">
+            <h5>Getting started</h5>
+            <p>Using this app is as simple as typing your topic of interest in the search box and hitting submit! We'll then search for any relevant projects and, if there are any matches, we'll show them to you...</p>
+          </div> <!-- right-text-box END -->
 
-  <header>
-    <h1>Show me the &pound;unding</h1>
-  </header>
-<div id="main-form">
-      <form id="form" action="">
-        <input id="input-text" type="text" name="input" class="input-text" placeholder="Enter a topic" />
-        <button type="submit" name="" class="css3button">Search</button>
-      </form>
-    
-    <div id="info-text"><p><strong>Show me the funding</strong> is a web application designed to display where and how funding across the United Kingdom is dispersed. By searching for topics of interest, you will be able to view related past and current research projects, where the lead institutions for those projects are taking place on a map along with appropriate related information, and see connections between institutions working together on projects.</p></div>
-    <footer>
-    <p>Copyright 2013</p>
-  </footer>
+        </div>
+      </div>
+    <div id="map"> 
+      <div id="map-canvas"></div>
     </div>
-    </div><div id="map"> 
-<div id="map-canvas"></div></div>
-  
-</div>
+  </div> <!-- wraper END -->
 </body>
-
 </html>
